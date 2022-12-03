@@ -28,7 +28,7 @@ const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            DH ODONTO
           </Typography>
           <button>Change theme</button>
         </Toolbar>
