@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {  CardActionArea, CardActions } from '@mui/material';
 import { Link } from "react-router-dom";
+import GradeIcon from '@mui/icons-material/Grade';
 
 const Card = ({ name, username, id }) => {
 
@@ -29,7 +30,7 @@ const Card = ({ name, username, id }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+          <Link to='dentist/:id'>{name} </Link>
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {username}
@@ -37,8 +38,8 @@ const Card = ({ name, username, id }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <button onClick={addFav} className="favButton">Add fav</button>
-      <Link to='dentist/:id'>Ir a Dentista {id}</Link>
+      <button onClick={addFav} className="favButton"><GradeIcon/></button>
+      
       </CardActions>
     </CardMUI>}        
     </div>
