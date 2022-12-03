@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {  CardActionArea, CardActions } from '@mui/material';
+import { Link } from "react-router-dom";
 
 const Card = ({ name, username, id }) => {
 
@@ -37,6 +38,7 @@ const Card = ({ name, username, id }) => {
       </CardActionArea>
       <CardActions>
       <button onClick={addFav} className="favButton">Add fav</button>
+      <Link to='dentist/:id'>Ir a Dentista {id}</Link>
       </CardActions>
     </CardMUI>}        
     </div>
