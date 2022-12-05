@@ -1,15 +1,30 @@
 import React from "react";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useContext } from 'react';
+
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
+
+import { ContextGlobal } from './Components/utils/global.context';
 
 function App() {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { theme } = useContext(ContextGlobal)
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate("/home");
+    }
+  });
   return (
     <div className="App">
-      <BrowserRouter>
         <Navbar />
+        <main>
+        <Outlet />
+      </main>
         <Footer />
-      </BrowserRouter>
     </div>
   );
 }

@@ -29,19 +29,12 @@ const Navbar = () => {
             >
               DH ODONTO
             </Typography>
-            <Link to="/Home">Ir a Home</Link>
-            <Link to="/Contacto">Ir a Contacto</Link>
-            <Link to="/Favs">Ir a Favs</Link>
+            <Link to="/Home">Home</Link>
+            <Link to="/Contacto">Contacto</Link>
+            <Link to="/Favs">Favs</Link>
             <button>Change theme</button>
           </Toolbar>
         </AppBar>
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Contacto" element={<ContactoPage />} />
-          <Route path="/Favs" element={<FavsPage />} />
-          <Route path="/dentista/:id" element={<DetailPage />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
       </Box>
     </nav>
   );
