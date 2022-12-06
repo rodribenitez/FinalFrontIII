@@ -1,25 +1,24 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "../Routes/Home";
-import ContactoPage from "../Routes/Contact";
-import FavsPage from "../Routes/Favs";
-import DetailPage from "../Routes/Detail";
-import { Link } from "react-router-dom";
+import React, {useContext} from "react";
 
+import { Link, Outlet } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+
+import { ContextGlobal } from "./utils/global.context";
+
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
+  // const { state, dispatch } = useContext(ContextGlobal);
   return (
-    <nav>
+    
+    <nav style= {{width : "100%"}}>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
 
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar sx = {{margin : "0" , padding : "0"}} position="static">
           <Toolbar>
             <Typography
               variant="h6"
@@ -32,10 +31,9 @@ const Navbar = () => {
             <Link to="/Home">Home</Link>
             <Link to="/Contacto">Contacto</Link>
             <Link to="/Favs">Favs</Link>
-            <button>Change theme</button>
+            <button >Change theme</button>
           </Toolbar>
         </AppBar>
-      </Box>
     </nav>
   );
 };
