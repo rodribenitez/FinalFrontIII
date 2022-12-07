@@ -7,13 +7,12 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
 import GradeIcon from "@mui/icons-material/Grade";
-import { setFavInStorage , removeFavInStorage } from "./utils/localStorage";
+import { setFavInStorage, removeFavInStorage } from "./utils/localStorage";
 import { ContextGlobal } from "./utils/global.context";
-
 
 const Card = ({ name, username, id }) => {
   const { state, dispatch } = useContext(ContextGlobal);
-  const [favorite, setFavorite] = useState(null);
+  const [favorite, setFavorite] = useState(false);
 
   const addFav = () => {
     const fav = setFavInStorage({ name, username, id });
@@ -23,42 +22,48 @@ const Card = ({ name, username, id }) => {
   const removeFav = () => {
     const fav = removeFavInStorage(id);
     isFav(fav);
-  }
-  
+  };
+
   const isFav = (fav) => {
     setFavorite(fav);
-  }
+  };
 
+  console.log(state);
   return (
-    <div className="card" style={{ bgColor : "red" }}>
+    <div className="card" style={{ bgColor: "red" }}>
       {/* En cada card deberan mostrar en name - username y el id */}
 
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <CardMUI>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image={process.env.PUBLIC_URL + "images/doctor.jpg"}
-              alt="img"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                <Link to={`/dentista/${id}`} style ={{color : state.ftColor}} >{name}</Link>
-              </Typography>
-              <Typography variant="body2" color= {state.ftColor}>
-                {username}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <button onClick={favorite ? removeFav : addFav} className="favButton">
-              <GradeIcon />
-            </button>
-          </CardActions>
-        </CardMUI>
+      <CardMUI sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "190px", height: "360px"}}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="140"
+            image={process.env.PUBLIC_URL + "images/doctor.jpg"}
+            alt="img"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              <Link to={`/dentista/${id}`} style={{ color: state.ftColor }}>
+                {name}
+              </Link>
+            </Typography>
+            <Typography variant="body2" color={state.ftColor}>
+              {username}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <button
+            onClick={favorite ? removeFav : addFav}
+            className="favButton"  
+          >
+            <GradeIcon />
+          </button>
+        </CardActions>
+      </CardMUI>
     </div>
   );
 };

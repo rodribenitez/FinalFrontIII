@@ -121,3 +121,7 @@ tr:nth-child(even) {
 .dark > a {
   color: white;
 }
+
+.favButton:hover{
+  background-color: blue;
+} 

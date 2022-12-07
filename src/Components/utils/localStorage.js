@@ -16,6 +16,7 @@ export const setFavInStorage = (odontologo) => {
     }
     else {
         alert("Dentist already on the list");
+        removeFavInStorage(odontologo.id);
         return false;
     }
 }
