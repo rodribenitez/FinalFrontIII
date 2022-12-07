@@ -49,7 +49,7 @@ const Navbar = () => {
             <Link to="/Home">Home</Link>
             <Link to="/Contacto">Contacto</Link>
             <Link to="/Favs">Favs</Link>
-            <button onClick={() => dispatch({ modo: state.bgFlag })}>{state.bgFlag == "dark" ? <DarkModeIcon / > : <LightModeIcon />} </button>
+            <button onClick={() => dispatch({ modo: state.bgFlag })}>{state.bgFlag == "dark" ? <DarkModeIcon /> : <LightModeIcon />} </button>
           </Toolbar>
         </AppBar>
     </nav>
