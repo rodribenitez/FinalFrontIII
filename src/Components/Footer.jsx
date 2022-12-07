@@ -12,7 +12,7 @@ const Footer = () => {
 
     <div >
             <div style={{background: "red", with : "100%"} } >
-            <p  className='back-to-top'  >VOLVER HACIA ARRIBA</p>
+            <p  className='back-to-top' onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} >VOLVER HACIA ARRIBA</p>
           </div>
           <footer style={{diplay: "flex"} } >
           {/* <img src="./images/DH.png" alt="" />

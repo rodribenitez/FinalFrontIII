@@ -19,3 +19,16 @@ export const setFavInStorage = (odontologo) => {
         return false;
     }
 }
+
+export const removeFavInStorage = (identifier) => {
+    const storageFavs = getFavFromStorage();
+    const index = storageFavs.findIndex(fav => fav.id === identifier);
+    if (index !== -1) {
+        storageFavs.splice(index, 1);
+        localStorage.setItem("favs", JSON.stringify(storageFavs));
+        alert("Dentist removed successfully");
+    }
+    else {
+        alert("An Error has ocurred");
+    }
+}

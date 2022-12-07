@@ -5,7 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link, Outlet } from "react-router-dom";
 import { NavBar, divNav, uls} from "./styled_component/nav";
-
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { ContextGlobal } from "./utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -48,7 +49,7 @@ const Navbar = () => {
             <Link to="/Home">Home</Link>
             <Link to="/Contacto">Contacto</Link>
             <Link to="/Favs">Favs</Link>
-            <button onClick={() => dispatch({ modo: state.bgFlag })}>Change theme</button>
+            <button onClick={() => dispatch({ modo: state.bgFlag })}>{state.bgFlag == "dark" ? <DarkModeIcon / > : <LightModeIcon />} </button>
           </Toolbar>
         </AppBar>
     </nav>
