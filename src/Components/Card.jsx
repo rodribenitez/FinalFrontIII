@@ -30,7 +30,7 @@ const Card = ({ name, username, id }) => {
   }
 
   return (
-    <div className="card" style={{ bgColor : state.bgColor }}>
+    <div className="card" style={{ bgColor : "red" }}>
       {/* En cada card deberan mostrar en name - username y el id */}
 
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
