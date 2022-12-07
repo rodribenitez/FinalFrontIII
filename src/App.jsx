@@ -8,7 +8,6 @@ import FavsPage from "./Routes/Favs";
 import DetailPage from "./Routes/Detail";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Layout from "./Components/Layout";
 
 // import { ContextGlobal } from './Components/utils/global.context';

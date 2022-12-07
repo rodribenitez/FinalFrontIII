@@ -1,27 +1,32 @@
-import React, { createContext, useReducer} from "react";
+import React, { createContext, useReducer, useEffect, useMemo} from "react";
 import { actions, initialState, reducer } from "./reducer.service";
+import axios from "axios";
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import CssBaseline from '@mui/material/CssBaseline';
 
 
-export const initialStates = {theme: "", data: []};
+
 
 export const ContextGlobal = createContext();
 
-const reducerFunction = (state, { modo }) => {
-  switch (modo) {
+const reducerFunction = (state, action) => {
+  switch (action.type) {
     case "dark":
       return {
         bgFlag: "light",
         bgColor: "#393944",
-        ftColor: "#eee"
+        ftColor: "#eee",
+        data: state.data
       }
       case "light":
         return {
           bgFlag: "dark",
           ftColor: "#393944",
-          bgColor: "#eee"
+          bgColor: "#eee", 
+          data: state.data
         }
+      case "data":
+        return { ...state, data: action.payload}
     default:
       return state;
   }
@@ -34,15 +39,25 @@ const ContextProvider = ({ children }) => {
   //     mode: 'light',
   //   },
   // })
-  const initalState = { bgFlag: "dark", ftColor: "#393944", bgColor: "#eee" }
+  const initalState = { bgFlag: "dark", ftColor: "#393944", bgColor: "#eee", data: []}
   const [state, dispatch] = useReducer(reducerFunction, initalState);
 
 
-  const aplicacion = {
-    state,
-    dispatch,
-  };
+  useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/users`)
+      .then((res) => {
+        dispatch({type : "data" , payload : res.data})
+      })
+      .catch((err) => console.log(err));
+    }, [])
 
+
+
+    const aplicacion = {
+      state,
+      dispatch,
+    };
   return (
     <ContextGlobal.Provider value={aplicacion}>
       <div style={{ backgroundColor: `${state.bgColor}`, width: "100%", height: "100vh", minHeight: "100%", color: `${state.ftColor}` }}>

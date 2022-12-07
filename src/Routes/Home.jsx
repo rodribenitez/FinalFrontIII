@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Card from "../Components/Card";
-import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { ContextGlobal } from "../Components/utils/global.context"
 // import { ContextProvider } from "./Components/utils/global.context";
@@ -9,17 +8,8 @@ import { ContextGlobal } from "../Components/utils/global.context"
 
 const Home = () => {
   const { state, dispatch } = useContext(ContextGlobal);
-  const [data, setData] = useState(null);
-  // const { state, dispatch } = useContext(DarkModeContext);
 
-  useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/users`)
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  console.log(state);
 
   return (
     <main className="">
@@ -27,8 +17,8 @@ const Home = () => {
       <div className="card-grid">
         {/* Aqui deberias renderizar las cards */}
 
-        {data ? (
-          data.map((item) => (
+        {state.data ? (
+          state.data.map((item) => (
             <Card
               key={item.id}
               name={item.name}
