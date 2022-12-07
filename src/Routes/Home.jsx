@@ -2,12 +2,15 @@ import React, { useState, useEffect} from 'react'
 import Card from '../Components/Card'
 import axios from "axios"
 import CircularProgress from '@mui/material/CircularProgress';
+// import { ContextProvider } from "./Components/utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
 
   const [data, setData] = useState(null);
+  // const { state, dispatch } = useContext(DarkModeContext);
+
 
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users`)

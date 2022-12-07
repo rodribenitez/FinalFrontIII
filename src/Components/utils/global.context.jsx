@@ -6,7 +6,7 @@ import { actions, initialState, reducer } from "./reducer.service";
 
 export const initialStates = {theme: "", data: []};
 
-export const ContextGlobal = createContext(undefined);
+export const ContextGlobal = createContext();
 
 const reducerFunction = (state, { modo }) => {
   switch (modo) {
@@ -27,7 +27,7 @@ const reducerFunction = (state, { modo }) => {
   }
 }
 
-export const ContextProvider = ({ children }) => {
+const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   // const inicialState = createTheme({
   //   palette: {
@@ -44,12 +44,14 @@ export const ContextProvider = ({ children }) => {
   };
 
   return (
-    <ContextGlobal.Provider value={{aplicacion}}>
+    <ContextGlobal.Provider value={aplicacion}>
       <div style={{ backgroundColor: `${state.bgColor}`, width: "100%", height: "100vh", minHeight: "100%", color: `${state.ftColor}` }}>
 
-      {children}
+        {children}
       </div>
 
     </ContextGlobal.Provider>
   );
 };
+
+export default ContextProvider
