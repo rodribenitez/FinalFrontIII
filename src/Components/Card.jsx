@@ -28,16 +28,15 @@ const Card = ({ name, username, id }) => {
     setFavorite(fav);
   };
 
-
   return (
-    <div className="card" style={{ bgColor: "red" }}>
+    <div className="card" >
       {/* En cada card deberan mostrar en name - username y el id */}
 
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <CardMUI sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "190px", height: "360px"}}>
-        <CardActionArea>
+      <CardMUI sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "190px", height: "355px", color : state.ftColor,background: state.bgColor}}>
+        <CardActionArea >
           <CardMedia
             component="img"
             height="140"

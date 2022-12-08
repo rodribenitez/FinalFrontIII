@@ -10,7 +10,7 @@ root.render(
 
 <React.StrictMode>
   <ContextProvider>
-  <App/>
+    <App/>
   </ContextProvider>
 </React.StrictMode>
 );
