@@ -28,7 +28,7 @@ const Card = ({ name, username, id }) => {
     setFavorite(fav);
   };
 
-  console.log(state);
+
   return (
     <div className="card" style={{ bgColor: "red" }}>
       {/* En cada card deberan mostrar en name - username y el id */}

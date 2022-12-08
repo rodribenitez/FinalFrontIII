@@ -11,7 +11,7 @@ const Favs = () => {
 
   useEffect(() => {
     setFavs(getFavFromStorage());
-  }, [favs])
+  }, [])
 
   return (
     <>
