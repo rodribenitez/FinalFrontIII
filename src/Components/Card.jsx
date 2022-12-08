@@ -35,34 +35,22 @@ const Card = ({ name, username, id }) => {
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <CardMUI sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "190px", height: "355px", color : state.ftColor,background: state.bgColor}}>
-        <CardActionArea >
-          <CardMedia
-            component="img"
-            height="140"
-            image={process.env.PUBLIC_URL + "images/doctor.jpg"}
-            alt="img"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              <Link to={`/dentista/${id}`} style={{ color: state.ftColor }}>
-                {name}
-              </Link>
-            </Typography>
-            <Typography variant="body2" color={state.ftColor}>
-              {username}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <button
+      <img src="./images/doctor.jpg" alt="imgDoctor"  />
+      <Link to={`/dentista/${id}`}>
+      <h2>
+        {name}
+      </h2>
+      </Link>
+      <h5>
+        {username}
+      </h5>
+      <button
             onClick={favorite ? removeFav : addFav}
             className="favButton"  
           >
             <GradeIcon />
           </button>
-        </CardActions>
-      </CardMUI>
+      
     </div>
   );
 };

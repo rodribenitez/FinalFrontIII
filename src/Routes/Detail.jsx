@@ -43,14 +43,12 @@ const Detail = () => {
               Sitio Web
             </th>
           </tr>
-
           <tr>
             <td> {odontologo.name} </td>
             <td>{odontologo.email}  </td>
             <td> {odontologo.phone}  </td>
             <td> {odontologo.website} </td>
           </tr>
-
       </table>
    ) : null}
     </>
