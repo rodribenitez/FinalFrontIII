@@ -15,40 +15,25 @@ const Navbar = () => {
   const { state, dispatch } = useContext(ContextGlobal);
   return (
     
-    <nav style={{bgColor : state.bgColor, color : state.ftColor , width:"100%" , padding : "0" , margin : "0"}} >
+    <nav style={{ width:"100%" , padding : "0" , margin : "0"}} >
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
 
-            {/* <divNav>
-             <span style={{color: "red"}}>D</span>H ODONTO
-            </divNav>
-            <divNav>
-              <uls>
-                    <Link to="/Home">Home</Link>
-
-      
-                  <Link to="/Contacto">Contacto</Link>
-          
-               
-                    <Link to="/Favs">Favs</Link>
-         
-                  <button onClick={() => dispatch({ modo: state.bgFlag })}  >Change theme</button>
-                </uls>
-            </divNav> */}
-
-    <AppBar sx = {{margin : "0" , padding : "0", bgColor : state.ftColor, color : state.ftColor}} position="static">
-          <Toolbar style={{bgColor : state.bgColor, color : state.ftColor}}>
+    <AppBar sx = {{margin : "0" , padding : "0", background : state.navbgColor, color : state.ftColor}} position="static">
+          <Toolbar >
             <Typography
               variant="h6"
               noWrap
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              DH ODONTO
-            </Typography>
-            <Link to="/Home">Home</Link>
-            <Link to="/Contacto">Contacto</Link>
-            <Link to="/Favs">Favs</Link>
+              <span style={{color : "red"}}>D</span>H ODONTO
+            </Typography >
+            <div style={{ display : "flex" }}>
+              <Link to="/Home" style={{color : state.ftColor, margin : "0px 30px"}} >Home</Link>
+              <Link to="/Contacto" style={{color : state.ftColor,margin : "0px 30px"}} >Contacto</Link>
+              <Link to="/Favs" style={{color : state.ftColor,margin : "0px 30px"}}>Favs</Link>
+            </div>
             <button onClick={() => dispatch({ type: state.bgFlag })}>{state.bgFlag == "dark" ? <DarkModeIcon /> : <LightModeIcon />} </button>
           </Toolbar>
         </AppBar>

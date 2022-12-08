@@ -14,7 +14,8 @@ const reducerFunction = (state, action) => {
     case "dark":
       return {
         bgFlag: "light",
-        bgColor: "#393944",
+        navbgColor: "#1f1f20",
+        bgColor:"#393944",
         ftColor: "#eee",
         data: state.data
       }
@@ -22,6 +23,7 @@ const reducerFunction = (state, action) => {
         return {
           bgFlag: "dark",
           ftColor: "#393944",
+          navbgColor: "#0bd7e6",
           bgColor: "#eee", 
           data: state.data
         }
@@ -39,7 +41,7 @@ const ContextProvider = ({ children }) => {
   //     mode: 'light',
   //   },
   // })
-  const initalState = { bgFlag: "dark", ftColor: "#393944", bgColor: "#eee", data: []}
+  const initalState = { bgFlag: "dark",navbgColor: "#0bd7e6", ftColor: "#393944", bgColor: "#eee", data: []}
   const [state, dispatch] = useReducer(reducerFunction, initalState);
 
 
