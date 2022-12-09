@@ -1,22 +1,38 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Form from '../Components/Form'
+import  '@testing-library/jest-dom'
+import {render, screen , fireEvent} from '@testing-library/react'
+import userEvent from '@testing-library/user-event';
+import Form from '../Components/Form';
 
-describe('MiComponente', () => {
+beforeEach(() =>{
+    render(<Form/>);
+})
 
-    it('Debe renderizar el componente sin errores', () => {
-        const componente = mount(<Form />);
-        expect(componente.find('div').length).toBe(1);
-    });
 
-    it('Debe tener una prop blSomeProp igual a true', () => {
-        const componente = mount(<Form blSomeProp={true} />);
-        expect(componente.instance().props.blSomeProp).toBe(true);
-    });
+test('Verifica renderizado del form', () => {
 
-    it('Debe tener una función llamada myFunc que retorne un string', () => {
-        const componente = mount(<Form />);
-        expect(typeof componente.instance().myFunc()).toBe("string");
-    });
+    const inputName = screen.getByRole("input1");
 
-});
+    const inputEmail = screen.getByRole("input2");
+
+    const btnSubmit= screen.getByRole("button"); 
+
+    expect(inputName).toBeInTheDocument();
+    expect(inputEmail).toBeInTheDocument();
+    expect(btnSubmit).toBeInTheDocument();
+})
+
+test('Verifica que el nombre ingresado por parametro, es el mostrado en pantalla', async () => {
+
+    const inputName =  screen.getByRole("input1");
+    fireEvent.change(inputName, {target: {value: 'Rodrigo'}})
+
+    const inputEmail = screen.getByRole("input2");
+    fireEvent.change(inputEmail, {target: {value: 'brause06@gamil.com'}})
+
+    const btnSubmit= screen.getByRole("button"); 
+    fireEvent.click(btnSubmit)
+
+    const wordMeaning = await screen.findByText("Gracias Rodrigo, te contactaremos cuando antes vía mail");
+
+    expect(wordMeaning).toBeInTheDocument();
+})

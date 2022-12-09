@@ -37,6 +37,7 @@ const Form = () => {
           placeholder="Full name"
           value={name}
           onChange={onChangeName}
+          role="input1"
         />
         <input
           id="input2"
@@ -44,8 +45,9 @@ const Form = () => {
           type="email"
           value={email}
           onChange={onChangeEmail}
+          role="input2"
         />
-        <button type="submit">Send</button>
+        <button role="button" type="submit" name="Submit">Send</button>
       </form>
       <p id="mensaje_error"></p>
       <h3 id = "mensaje"> </h3>
