@@ -1,10 +1,5 @@
 import * as React from "react";
 import { useContext, useState } from "react";
-import CardMUI from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea, CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
 import GradeIcon from "@mui/icons-material/Grade";
 import { setFavInStorage, removeFavInStorage } from "./utils/localStorage";
@@ -37,7 +32,7 @@ const Card = ({ name, username, id }) => {
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       <img src="./images/doctor.jpg" alt="imgDoctor"  />
       <Link to={`/dentista/${id}`}>
-      <h2>
+      <h2 style={{color: state.ftColor}}>
         {name}
       </h2>
       </Link>
