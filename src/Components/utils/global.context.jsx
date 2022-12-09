@@ -62,7 +62,7 @@ const ContextProvider = ({ children }) => {
     };
   return (
     <ContextGlobal.Provider value={aplicacion}>
-      <div style={{ backgroundColor: `${state.bgColor}`, width: "100%", height: "100vh", minHeight: "100%", color: `${state.ftColor}` }}>
+      <div style={{ backgroundColor: `${state.bgColor}`, width: "100%", height: "110vh", color: `${state.ftColor}` }}>
 
         {children}
       </div>

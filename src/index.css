@@ -92,7 +92,7 @@ form{
   justify-content: space-evenly;
   gap: 1rem;
   width: 70vw;
-  height: auto;
+  height:auto;
   flex-wrap: wrap;
   margin: 0 auto;
 }
