@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useEffect, useMemo} from "react";
 import { actions, initialState, reducer } from "./reducer.service";
-import axios from "axios";
+
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import CssBaseline from '@mui/material/CssBaseline';
 
@@ -47,14 +47,7 @@ const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunction, initalState);
 
 
-  useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/users`)
-      .then((res) => {
-        dispatch({type : "data" , payload : res.data})
-      })
-      .catch((err) => console.log(err));
-    }, [])
+  
 
 
 
