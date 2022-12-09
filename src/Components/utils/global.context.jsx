@@ -16,6 +16,7 @@ const reducerFunction = (state, action) => {
         bgFlag: "light",
         navbgColor: "#1f1f20",
         bgColor:"#393944",
+        bgColorImg : "#eee",
         ftColor: "#eee",
         data: state.data
       }
@@ -24,6 +25,7 @@ const reducerFunction = (state, action) => {
           bgFlag: "dark",
           ftColor: "#393944",
           navbgColor: "#0bd7e6",
+          bgColorImg : "#393944",
           bgColor: "#eee", 
           data: state.data
         }
@@ -62,7 +64,7 @@ const ContextProvider = ({ children }) => {
     };
   return (
     <ContextGlobal.Provider value={aplicacion}>
-      <div style={{ backgroundColor: `${state.bgColor}`, width: "100%", height: "110vh", color: `${state.ftColor}` }}>
+      <div style={{ backgroundColor: `${state.bgColor}` , height : "115vh", minHeight : "100%", color: `${state.ftColor}` }}>
 
         {children}
       </div>
